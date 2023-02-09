@@ -1,0 +1,19 @@
+{
+  "name": "mvc-crud-api",
+  "version": "1.0.0",
+  "description": "this is to create mvc crud api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudyhardy/MVC-CRUD-API.git"
+  },
+  "author": "Sudi Hardi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudyhardy/MVC-CRUD-API/issues"
+  },
+  "homepage": "https://github.com/sudyhardy/MVC-CRUD-API#readme"
+}
