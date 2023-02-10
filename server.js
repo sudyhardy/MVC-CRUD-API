@@ -6,10 +6,14 @@ const app = express();
 const port = 3000;
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/mvc-app", {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true   
-});
+    useUnifiedTopology: true
+  }).then(() => {
+    console.log('Connected to MongoDB');
+  }).catch(error => {
+    console.error('Error connecting to MongoDB: ', error);
+  });
 
 // Parse incoming request body in a middleware
 app.use(bodyParser.json());
