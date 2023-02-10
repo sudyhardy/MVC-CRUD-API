@@ -18,6 +18,26 @@ app.use(cors());
 app.use(helmet());
 app.use(sanitizer());
 
+// Check if JWT token exists and verifies it if it does
+app.use((req, res, next) => {
+    // Get token from header
+    const token = req.header("x-auth-token");
+
+    // check if not token
+    if (!token) {
+        return res.status(401).json({ msg: "No token, access denied!"});
+    }
+
+    // Verify token
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded.user;
+        next();
+    } catch (err) {
+        res.status(401).json({msg: "Token is not valid"});
+    }
+});
+
 // Use routes
 app.use("/items", itemRoutes);
 
